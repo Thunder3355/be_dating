@@ -1,4 +1,3 @@
-import { NgIf } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Component, inject, OnInit } from '@angular/core';
 import { RegisterComponent } from "../register/register.component";
@@ -6,7 +5,7 @@ import { RegisterComponent } from "../register/register.component";
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [NgIf, RegisterComponent],
+  imports: [ RegisterComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })

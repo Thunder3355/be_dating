@@ -20,10 +20,10 @@ public static class ApplicationServiceExtasions
         });
         services.AddCors();
         services.AddScoped<ITokenService, TokenService>();
+        services.AddScoped<IUserRepository, UserRepository>();
+        services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
         
-        // services.AddScoped<IUserRepository, UserRepository>();
         // services.AddScoped<IPhotoSevice, PhotoService>();
-        // services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
         // services.Configure<CloudinarySettings>(config.GetSection("CloudinarySettings"));
 
         return services;

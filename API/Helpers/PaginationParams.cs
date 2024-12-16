@@ -2,7 +2,7 @@ using System;
 
 namespace API.Helpers;
 
-public class PagenationParams
+public class PaginationParams
 {
  private const int MaxPageSize = 50; 
     public int PageNumber { get; set; } = 1;

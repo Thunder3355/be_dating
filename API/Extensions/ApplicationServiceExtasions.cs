@@ -22,9 +22,11 @@ public static class ApplicationServiceExtasions
         services.AddCors();
         services.AddScoped<ITokenService, TokenService>();
         services.AddScoped<IUserRepository, UserRepository>();
+        services.AddScoped<LogUserActivity>();
         services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
         services.Configure<CloudinarySettings>(config.GetSection("CloudinarySettings"));
         services.AddScoped<IPhotoSevice, PhotoService>();
+        services.AddScoped<ILikesRepository, LikesRepository>();
 
         return services;
     }

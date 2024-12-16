@@ -34,6 +34,7 @@ public class AccountController(DataContext context,
 
         return new UserDto{
             Username = user.UserName,
+            Gender = user.Gender,
             KnownAs = user.KnownAs,
             Token = tokenService.CreateToken(user)
         };
@@ -64,7 +65,8 @@ public class AccountController(DataContext context,
             Username = loginDto.Username,
             Token = tokenService.CreateToken(user),
             PhotoUrl = user.Photos.FirstOrDefault(x => x.IsMain)?.Url,
-            KnownAs = user.KnownAs 
+            KnownAs = user.KnownAs,
+            Gender = user.Gender
         };
     }
 

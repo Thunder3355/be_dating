@@ -1,6 +1,6 @@
 import { inject, Injectable, signal } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { environment } from '../../environments/environment.development';
+import { environment } from '../../environments/environment';
 import { Member } from '../_models/member';
 import { PaginatedResult } from '../_models/pagination';
 import { setPaginatedResponse, setPaginationHeaders } from './paginationHelper';
@@ -9,7 +9,7 @@ import { setPaginatedResponse, setPaginationHeaders } from './paginationHelper';
   providedIn: 'root'
 })
 export class LikesService {
-  baseUrl = environment.baseUrl;
+  baseUrl = environment.apiUrl;
   private http = inject(HttpClient);
   likeIds = signal<number[]>([]);
   paginatedResult = signal<PaginatedResult<Member[]> | null>(null);

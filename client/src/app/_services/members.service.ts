@@ -1,6 +1,6 @@
 import { HttpClient, HttpParams, HttpResponse } from '@angular/common/http';
 import { inject, Injectable, signal } from '@angular/core';
-import { environment } from '../../environments/environment.development';
+import { environment } from '../../environments/environment';
 import { Member } from '../_models/member';
 import { Photo } from '../_models/photo';
 import { PaginatedResult } from '../_models/pagination';
@@ -16,7 +16,7 @@ export class MembersService {
   private http = inject(HttpClient);
   private accountService = inject(AccountService);
 
-  baseUrl = environment.baseUrl;
+  baseUrl = environment.apiUrl;
   paginatedResult = signal<PaginatedResult<Member[]> | null>(null);     
   memberCache = new Map();
   user = this.accountService.currentUser();

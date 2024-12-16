@@ -4,7 +4,7 @@ import { Photo } from '../../_models/photo';
 import { DecimalPipe, NgClass, NgFor, NgIf, NgStyle } from '@angular/common';
 import { FileUploader, FileUploadModule } from 'ng2-file-upload';
 import { AccountService } from '../../_services/account.service';
-import { environment } from '../../../environments/environment.development';
+import { environment } from '../../../environments/environment';
 import { MembersService } from '../../_services/members.service';
 
 @Component({
@@ -24,7 +24,7 @@ private memberService = inject(MembersService)
   uploader?: FileUploader;
   hasBaseDropZoneOver = false;
   hasAnotherDropZoneOver = false;
-  baseUrl = environment.baseUrl;
+  baseUrl = environment.apiUrl;
 
   ngOnInit(): void {
     this.initializerUploader();

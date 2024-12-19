@@ -1,19 +1,17 @@
-using System.Threading.Tasks;
-using API.Data;
-using API.Entities;
-using API.Extensions;
-using API.Middleware;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
+using System;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
+using Microsoft.EntityFrameworkCore;
+using API.Data;
+using API.Middleware;
+using API.Extensions;
 
 public class Program
 {
-    public static async Task Main(string[] args)
+    public static void Main(string[] args)
     {
-        var builder = Microsoft.AspNetCore.Builder.WebApplication.CreateBuilder(args);
+        var builder = WebApplication.CreateBuilder(args);
 
         builder.Services.AddApplicationServices(builder.Configuration);
         builder.Services.AddIdentityServices(builder.Configuration);
@@ -41,15 +39,15 @@ public class Program
         try
         {
             var context = services.GetRequiredService<DataContext>();
-            await context.Database.MigrateAsync();
-            await Seed.SeedUsers(context);
+            context.Database.Migrate();
+            Seed.SeedUsers(context).Wait();
         }
         catch (Exception ex)
         {
-            var logger = services.GetRequiredService<ILogger<Program>>();
+            var logger = services.GetRequiredService<Microsoft.Extensions.Logging.ILogger<Program>>();
             logger.LogError(ex, "An error occurred during migration");
         }
 
-        await app.RunAsync();
+        app.Run();
     }
 }

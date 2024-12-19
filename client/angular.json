@@ -14,8 +14,13 @@
           "builder": "@angular-devkit/build-angular:application",
           "options": {
             "outputPath": {
+<<<<<<< HEAD
              "base": "../API/wwwroot",
              "browser": ""
+=======
+              "base": "../API/wwwroot",
+              "browser": ""
+>>>>>>> 94d1939 (Initial commit)
             },
             "index": "src/index.html",
             "browser": "src/main.ts",
@@ -54,7 +59,11 @@
               ],
               "optimization": {
                 "styles": {
+<<<<<<< HEAD
                   "inlineCritical": false
+=======
+                  "inlineCritical": false 
+>>>>>>> 94d1939 (Initial commit)
                 }
               },
               "outputHashing": "all"
@@ -116,5 +125,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": false
   }
 }

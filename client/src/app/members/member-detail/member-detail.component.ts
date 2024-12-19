@@ -64,18 +64,4 @@ export class MemberDetailComponent implements OnInit {
       if (messageTab) messageTab.active = true;
     }
   }
-  // loadMember() {
-  //   const username = this.route.snapshot.paramMap.get('username');
-  //   if (!username) return;
-
-  //   this.memberService.getMember(username).subscribe({
-  //     next: member => {
-  //       this.member = member;
-  //       member.photos.map(photo => {
-  //         this.images.push(new ImageItem({src: photo.url, thumb: photo.url})
-  //         )
-  //       })
-  //     }
-  //   })
-  // }
 }

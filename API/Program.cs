@@ -26,7 +26,10 @@ app.UseAuthorization();
 
 app.UseDefaultFiles();
 app.UseStaticFiles();
+<<<<<<< HEAD
 
+=======
+>>>>>>> 94d1939 (Initial commit)
 app.MapFallbackToController("Index", "Fallback");
 
 app.MapControllers();
@@ -38,11 +41,12 @@ try
     var context = services.GetRequiredService<DataContext>();
     // var userManager = services.GetRequiredService<UserManager<AppUser>>();
     await context.Database.MigrateAsync();
+    // await context.Database.ExecuteSqlRawAsync("DELETE FROM [Connections]");
     await Seed.SeedUsers(context);
 }
 catch (Exception ex)
 {
-    var logger = services.GetService<ILogger<Program>>();
+    var logger = services.GetRequiredService<ILogger<Program>>();
     logger.LogError(ex, "An error occurred during migration");
 }
 

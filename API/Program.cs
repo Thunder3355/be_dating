@@ -26,10 +26,7 @@ app.UseAuthorization();
 
 app.UseDefaultFiles();
 app.UseStaticFiles();
-<<<<<<< HEAD
 
-=======
->>>>>>> 94d1939 (Initial commit)
 app.MapFallbackToController("Index", "Fallback");
 
 app.MapControllers();

@@ -4,6 +4,8 @@
     <TargetFramework>net8.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+    <!-- Добавляем явное указание на выходной тип приложения -->
+    <OutputType>Exe</OutputType>
   </PropertyGroup>
 
   <ItemGroup>

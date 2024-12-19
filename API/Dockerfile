@@ -8,7 +8,7 @@ FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /src
 
 # Копируем файл проекта и выполняем restore
-COPY ["API/API.csproj", "API/"]
+COPY ["./API.csproj", "API/"]
 RUN dotnet restore "API/API.csproj"
 
 # Копируем весь проект и выполняем сборку
